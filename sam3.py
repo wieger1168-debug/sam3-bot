@@ -37,18 +37,82 @@ st.set_page_config(page_title="СЭМ 3 — Вездеход по киберпр
 st.markdown("""
 <style>
     .stApp { background-color: #0b0f0b; color: #d8e6d8; }
-    .windshield { background: linear-gradient(180deg, #1a3a1a 0%, #2e5a2e 40%, #4a7a3a 70%, #6b8f4a 100%); border: 3px solid #66ff66; border-radius: 12px; padding: 18px 24px; text-align: center; box-shadow: 0 0 25px rgba(102,255,102,0.35), inset 0 0 30px rgba(0,0,0,0.4); margin-bottom: 18px; }
-    .windshield h1 { color: #eaffea; margin: 0; text-shadow: 2px 2px 6px #000; font-family: 'Courier New', monospace; letter-spacing: 3px; }
+
+    .windshield {
+        background: linear-gradient(180deg, #1a3a1a 0%, #2e5a2e 40%, #4a7a3a 70%, #6b8f4a 100%);
+        border: 3px solid #66ff66;
+        border-radius: 12px;
+        padding: 18px 24px;
+        text-align: center;
+        box-shadow: 0 0 25px rgba(102,255,102,0.35), inset 0 0 30px rgba(0,0,0,0.4);
+        margin-bottom: 18px;
+    }
+    .windshield h1 {
+        color: #eaffea; margin: 0;
+        text-shadow: 2px 2px 6px #000;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 3px;
+    }
     .windshield p { color: #cfe8cf; margin: 6px 0 0 0; font-style: italic; }
-    .panel { background: #111711; border: 2px solid #3a5a3a; border-radius: 10px; padding: 16px 20px; box-shadow: inset 0 0 12px rgba(0,0,0,0.6); }
-    .panel h3 { color: #66ff66; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px dashed #3a5a3a; padding-bottom: 6px; }
-    .stTextInput input, .stSelectbox div, .stSlider div { background: #0e130e !important; color: #cfe8cf !important; border: 1px solid #3a5a3a !important; }
+
+    .panel {
+        background: #111711;
+        border: 2px solid #3a5a3a;
+        border-radius: 10px;
+        padding: 16px 20px;
+        box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+    }
+    .panel h3 {
+        color: #66ff66; font-family: 'Courier New', monospace;
+        text-transform: uppercase; letter-spacing: 2px;
+        border-bottom: 1px dashed #3a5a3a; padding-bottom: 6px;
+    }
+
+    /* Исправленные селекторы — только для видимых элементов ввода, без ломки внутренней структуры */
+    .stTextInput input {
+        background: #0e130e !important;
+        color: #cfe8cf !important;
+        border: 1px solid #3a5a3a !important;
+    }
+    .stSelectbox > div > div > div {
+        background: #0e130e !important;
+        color: #cfe8cf !important;
+        border: 1px solid #3a5a3a !important;
+    }
+    .stSlider > div > div > div > div {
+        background: #66ff66 !important;
+    }
     .stCheckbox label { color: #d8e6d8 !important; }
-    .stButton > button { background: linear-gradient(180deg, #2e7d32, #1b5e20); color: #eaffea; font-weight: bold; border: 2px solid #66ff66; border-radius: 8px; padding: 14px 30px; font-size: 18px; letter-spacing: 2px; box-shadow: 0 0 18px rgba(102,255,102,0.5); transition: all 0.2s; }
-    .stButton > button:hover { background: linear-gradient(180deg, #388e3c, #2e7d32); box-shadow: 0 0 30px rgba(102,255,102,0.8); transform: scale(1.02); }
-    .route { background: #060a06; border: 2px solid #1f4d1f; border-radius: 8px; padding: 16px; font-family: 'Courier New', monospace; color: #5fff5f; box-shadow: inset 0 0 18px rgba(0,255,0,0.15); }
+
+    .stButton > button {
+        background: linear-gradient(180deg, #2e7d32, #1b5e20);
+        color: #eaffea; font-weight: bold;
+        border: 2px solid #66ff66; border-radius: 8px;
+        padding: 14px 30px; font-size: 18px;
+        letter-spacing: 2px;
+        box-shadow: 0 0 18px rgba(102,255,102,0.5);
+        transition: all 0.2s;
+    }
+    .stButton > button:hover {
+        background: linear-gradient(180deg, #388e3c, #2e7d32);
+        box-shadow: 0 0 30px rgba(102,255,102,0.8);
+        transform: scale(1.02);
+    }
+
+    .route {
+        background: #060a06; border: 2px solid #1f4d1f;
+        border-radius: 8px; padding: 16px;
+        font-family: 'Courier New', monospace; color: #5fff5f;
+        box-shadow: inset 0 0 18px rgba(0,255,0,0.15);
+    }
     .route h4 { color: #aaffaa; margin-top: 0; }
-    .footer { text-align: center; color: #6b8f6b; font-family: 'Courier New', monospace; font-size: 13px; margin-top: 24px; border-top: 1px dashed #2e4a2e; padding-top: 10px; }
+
+    .footer {
+        text-align: center; color: #6b8f6b;
+        font-family: 'Courier New', monospace;
+        font-size: 13px; margin-top: 24px;
+        border-top: 1px dashed #2e4a2e; padding-top: 10px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
